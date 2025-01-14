@@ -51,3 +51,11 @@ func (s *StudentHandler) GetStudents() ([]Student, error) {
 
 	return students, err
 }
+
+func (s *StudentHandler) GetStudent(id int) (Student, error) {
+	student := Student{}
+
+	err := s.DB.First(&student, id)
+	
+	return student, err.Error
+}
